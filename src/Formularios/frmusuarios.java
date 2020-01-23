@@ -5,6 +5,8 @@
  */
 package Formularios;
 
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author paulo.ti
@@ -88,6 +90,11 @@ public class frmusuarios extends javax.swing.JInternalFrame {
         btnnovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnnovoActionPerformed(evt);
+            }
+        });
+        btnnovo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnnovoKeyPressed(evt);
             }
         });
 
@@ -199,63 +206,102 @@ public class frmusuarios extends javax.swing.JInternalFrame {
     private void txtcodigousuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodigousuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcodigousuarioActionPerformed
-
-    private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
-        // Este é o código do novo formulario cadastro usuarios   
-      
-            
+    public void botaonovo() {
         btnbuscar.setEnabled(false);
         btndeletar.setEnabled(false);
         btneditar.setEnabled(false);
-        
-       
-    }//GEN-LAST:event_btnnovoActionPerformed
-
-    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
-        // Enable botão editar
-        btnbuscar.setEnabled(false);
-        btnnovo.setEnabled(false);
-        btndeletar.setEnabled(true);
-        txtcodigousuario.setEditable(true);
+        txtcodigousuario.setEnabled(true);
         txtconfirmarsenha.setEnabled(true);
         txtnome.setEnabled(true);
         txtsenha.setEnabled(true);
-        txtsobrenome.setEditable(true);
-        
-    }//GEN-LAST:event_btneditarActionPerformed
+        txtsobrenome.setEnabled(true);
+        txtcodigousuario.requestFocusInWindow();
 
-    private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+    }
+
+    public void botaoeditar() {
+        btnbuscar.setEnabled(true);
+        btnnovo.setEnabled(true);
+        btndeletar.setEnabled(false);
+        btneditar.setEnabled(false);
+        txtcodigousuario.setEnabled(true);
+        txtconfirmarsenha.setEnabled(true);
+        txtnome.setEnabled(true);
+        txtsenha.setEnabled(true);
+        txtsobrenome.setEnabled(true);
+        txtcodigousuario.requestFocusInWindow();
+
+    }
+
+    public void botaosalvar() {
         // Enble botoões salvar
         btnbuscar.setEnabled(true);
         btnnovo.setEnabled(true);
-        txtcodigousuario.setEditable(false);
-        txtconfirmarsenha.setEnabled(false);
-        txtnome.setEnabled(false);
-        txtsenha.setEnabled(false);
-        txtsobrenome.setEditable(false);
-        
-        
-        
-    }//GEN-LAST:event_btnsalvarActionPerformed
+        txtcodigousuario.setEnabled(true);
+        txtconfirmarsenha.setEnabled(true);
+        txtnome.setEnabled(true);
+        txtsenha.setEnabled(true);
+        txtsobrenome.setEnabled(true);
 
-    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        txtcodigousuario.setText("");
+        txtnome.setText("");
+        txtsobrenome.setText("");
+        txtsenha.setText("");
+        txtconfirmarsenha.setText("");
+        txtcodigousuario.requestFocusInWindow();
+    }
+
+    public void botaobuscar() {
         // Enable botão buscar
         btnbuscar.setEnabled(true);
         btnnovo.setEnabled(true);
         btneditar.setEnabled(true);
+        btndeletar.setEnabled(true);
         txtcodigousuario.setEditable(true);
         txtnome.setEnabled(true);
         txtsobrenome.setEditable(true);
-    }//GEN-LAST:event_btnbuscarActionPerformed
+        txtcodigousuario.requestFocusInWindow();
+    }
 
-    private void btndeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletarActionPerformed
+    public void botaodeletar() {
         // TODO add your handling code here:
+        btneditar.setEnabled(false);
         txtcodigousuario.setEditable(false);
         txtconfirmarsenha.setEnabled(false);
         txtnome.setEnabled(false);
         txtsenha.setEnabled(false);
         txtsobrenome.setEditable(false);
+    }
+
+
+    private void btnnovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnovoActionPerformed
+        // Este é o código do novo formulario cadastro usuarios   
+        botaonovo();
+    }//GEN-LAST:event_btnnovoActionPerformed
+
+    private void btneditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditarActionPerformed
+        // Enable botão editar
+        botaoeditar();
+    }//GEN-LAST:event_btneditarActionPerformed
+
+    private void btnsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsalvarActionPerformed
+        botaosalvar();
+    }//GEN-LAST:event_btnsalvarActionPerformed
+
+    private void btnbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbuscarActionPerformed
+        botaobuscar();
+    }//GEN-LAST:event_btnbuscarActionPerformed
+
+    private void btndeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletarActionPerformed
+        botaodeletar();
     }//GEN-LAST:event_btndeletarActionPerformed
+
+    private void btnnovoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnnovoKeyPressed
+        // TODO add your handling code here:
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            botaonovo();
+        }
+    }//GEN-LAST:event_btnnovoKeyPressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
